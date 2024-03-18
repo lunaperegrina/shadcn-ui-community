@@ -38,3 +38,11 @@ export function TypographyP() {
     </p>
   )
 }
+
+export function TypographyLead({ className, children }: { className?: string, children: React.ReactNode }) {
+  return (
+    <p className={`text-xl text-muted-foreground ${className}`}>
+      {children}
+    </p>
+  )
+}

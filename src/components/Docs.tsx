@@ -8,7 +8,7 @@ import DynamicComponent from "./DynamicComponent";
 
 import { useRouter, usePathname } from 'next/navigation';
 
-import { TypographyH1, TypographyH2 } from "@/components/Typography";
+import { TypographyH1, TypographyH2, TypographyLead } from "@/components/Typography";
 
 import Link from "next/link";
 
@@ -30,7 +30,7 @@ export default function Docs({ params }: { params: { slug: string } }) {
     { name: "Switch", slug: "switch", description: "A switch component" },
     { name: "Tabs", slug: 'tabs', description: "A tabs component" },
     { name: "Tooltip", slug: 'tooltip', description: "A tooltip component" },
-    { name: "Naigation Menu", slug: 'navigation-menu', description: "A navigation menu component" }
+    { name: "Navigation Menu", slug: 'navigation-menu', description: "A navigation menu component" }
   ]
 
   const docs = [
@@ -101,8 +101,11 @@ export default function Docs({ params }: { params: { slug: string } }) {
         <TypographyH2>
           {components.find(component => component.slug === params.slug)?.name}
         </TypographyH2>
-
+        <TypographyLead>
+          {components.find(component => component.slug === params.slug)?.description}
+        </TypographyLead>
         <br className="mb-20" />
+
 
         <DynamicComponent slug={params.slug} />
 
